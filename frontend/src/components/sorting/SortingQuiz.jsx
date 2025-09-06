@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function SortingQuiz({ questions = [], onFinish }) {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState({});
-
   const q = questions[current];
 
   function selectAnswer(house) {
@@ -32,7 +31,7 @@ export default function SortingQuiz({ questions = [], onFinish }) {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-6 rounded-2xl backdrop-blur-lg bg-white/10 shadow-lg text-white">
+    <div className="max-w-3xl mx-auto p-6 rounded-2xl backdrop-blur-lg bg-hogwarts-bg/70 shadow-lg text-white border border-hogwarts-gold">
       <AnimatePresence mode="wait">
         <motion.div
           key={q.id}
@@ -42,10 +41,10 @@ export default function SortingQuiz({ questions = [], onFinish }) {
           transition={{ duration: 0.4 }}
         >
           <div className="mb-6">
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-hogwarts-stone">
               Question {current + 1} / {questions.length}
             </div>
-            <h3 className="text-2xl font-bold mt-3 text-yellow-400 drop-shadow-md">
+            <h3 className="text-2xl font-bold mt-3 text-hogwarts-gold drop-shadow-lg">
               {q.question}
             </h3>
           </div>
@@ -56,13 +55,13 @@ export default function SortingQuiz({ questions = [], onFinish }) {
               return (
                 <motion.button
                   key={opt.id}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, boxShadow: selected ? "0 0 15px #facc15, 0 0 25px #fbbf24" : "0 0 10px #ffffff33" }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => selectAnswer(opt.house)}
                   className={`p-4 rounded-lg border transition-all duration-200 
                     ${
                       selected
-                        ? "border-yellow-400 bg-yellow-500/20 shadow-md"
+                        ? "border-hogwarts-gold bg-yellow-500/20 shadow-md"
                         : "border-gray-700 hover:bg-white/5"
                     }`}
                 >
@@ -84,7 +83,7 @@ export default function SortingQuiz({ questions = [], onFinish }) {
             {current < questions.length - 1 ? (
               <button
                 onClick={next}
-                className="px-6 py-2 rounded-lg bg-yellow-500 text-gray-900 font-semibold hover:bg-yellow-400 transition"
+                className="px-6 py-2 rounded-lg bg-hogwarts-gold text-gray-900 font-semibold hover:bg-yellow-400 transition"
               >
                 Next
               </button>

@@ -12,7 +12,7 @@ module.exports = {
         hogwarts: {
           bg: "#0D0D0D",
           gold: "#FFD700",
-          stone: "#1C1C1C",
+          stone: "#8a8a8a",
         },
       },
       fontFamily: {
