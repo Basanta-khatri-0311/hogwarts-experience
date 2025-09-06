@@ -1,9 +1,18 @@
-import React from 'react'
+// src/App.jsx
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import SortingPage from "./pages/Sorting";
 
-const App = () => {
+function App() {
   return (
-    <div className=''>App</div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/sorting" element={<SortingPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
